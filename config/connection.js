@@ -1,6 +1,9 @@
-// Set up MySQL connection.
+//  -- Database Connection --
+
+// dependency
 var mysql = require("mysql");
 
+// connection object
 var connection = mysql.createConnection({
   host: "localhost",
   port: 3306,
@@ -9,7 +12,7 @@ var connection = mysql.createConnection({
   database: "burgers_db"
 });
 
-// Make connection.
+// establish connection
 connection.connect(function(err) {
   if (err) {
     console.error("error connecting: " + err.stack);
@@ -18,5 +21,5 @@ connection.connect(function(err) {
   console.log("connected as id " + connection.threadId);
 });
 
-// Export connection for our ORM to use.
+// export module
 module.exports = connection;
